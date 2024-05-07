@@ -171,6 +171,7 @@ class TransformToPayload(beam.DoFn):
       event_timestamp=self.date_to_micro(element["inference_date"]),
       event_name=self.event_name,
       user_properties=self.generate_user_properties(element),
+      ga_session_id=element["ga_session_id"]
     )
     result = {}
     try:
@@ -253,7 +254,7 @@ def run(argv=None):
       }, {
       'name': 'latest_state', 'type': 'STRING', 'mode': 'REQUIRED'
       }, {
-      'name': 'updated_at', 'type': 'TIMESTAMP', 'mode': 'REQUIRED'
+      'name': 'updated_at', 'type': 'STRING', 'mode': 'REQUIRED'
     }]
   }
 
