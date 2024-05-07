@@ -1,6 +1,5 @@
 {
   "client_id": "{{client_id}}",
-  "ga_session_id": "{{ga_session_id}}"
   "timestamp_micros": {{event_timestamp}},
   "nonPersonalizedAds": false,
   "user_properties": 
@@ -8,7 +7,10 @@
   "events": [
     {
       "name": "{{event_name}}",
-      "url": "THIS WILL BE STATIC URL"
+      "params": {
+        "fullPageUrl": "THIS WILL BE STATIC URL",
+        "session_id": "{{session_id}}"
+      }
     }
   ]
 }
