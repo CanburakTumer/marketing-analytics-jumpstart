@@ -1,7 +1,7 @@
 SELECT
   a.prediction AS p_p_prediction,
   NTILE(10) OVER (ORDER BY a.prediction_prob DESC) AS p_p_decile,
-  COALESCE(b.user_id, b.user_pseudo_id) AS client_id,
+  COALESCE(b.user_pseudo_id, b.user_id) AS client_id,
   c.ga_session_id AS ga_session_id
   TIMESTAMP_ADD(b.event_timestamp, INTERVAL 1 MICROSECOND) AS inference_date
 FROM
